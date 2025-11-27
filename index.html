@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>汇率速递 - 实时银行汇率查询与监控预警</title>
+    <meta name="description" content="汇率速递是一款简单好用的实时银行汇率查询和监控预警工具，支持一键比价、价格提醒与换算功能。">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: '#FE6A00', // 设置你的品牌橙色
+                        brandHover: '#e55f00',
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        /* 自定义简单的滚动条样式 */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #cbd5e1;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #94a3b8;
+        }
+        .app-screenshot {
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+            border-radius: 1.5rem;
+            border: 8px solid #1f2937;
+        }
+    </style>
+</head>
+<body class="font-sans text-gray-700 antialiased bg-gray-50">
+
+    <nav class="bg-white shadow-sm fixed w-full z-50 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center gap-2">
+                        <div class="w-8 h-8 bg-brand rounded-lg flex items-center justify-center text-white font-bold">
+                            <i class="fa-solid fa-chart-line"></i>
+                        </div>
+                        <span class="font-bold text-xl tracking-tight text-gray-900">汇率速递</span>
+                    </div>
+                </div>
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#features" class="text-gray-500 hover:text-brand transition">核心功能</a>
+                    <a href="#screenshots" class="text-gray-500 hover:text-brand transition">应用截图</a>
+                    <a href="#agreement" onclick="openModal()" class="text-gray-500 hover:text-brand transition">用户协议</a>
+                    <a href="https://www.huilvsudi.com/" target="_blank" class="bg-brand hover:bg-brandHover text-white px-5 py-2 rounded-full font-medium transition shadow-lg shadow-orange-500/30">
+                        立即使用
+                    </a>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <a href="https://www.huilvsudi.com/" target="_blank" class="text-brand font-medium mr-4">打开App</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <section class="pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <div class="lg:grid lg:grid-cols-12 lg:gap-8">
+                <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left flex flex-col justify-center">
+                    <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
+                        <span class="block">实时监控汇率</span>
+                        <span class="block text-brand">把握最佳换汇时机</span>
+                    </h1>
+                    <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
+                        汇率速递为您提供多家银行实时外汇牌价对比、智能价格预警与便捷换算服务。支持澳元、美元、日元等全球主流货币。
+                    </p>
+                    <div class="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
+                        <a href="https://www.huilvsudi.com/" target="_blank" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-brand hover:bg-brandHover md:py-4 md:text-lg md:px-10 shadow-xl shadow-orange-500/20 transition transform hover:-translate-y-1">
+                            <i class="fa-solid fa-mobile-screen mr-2"></i> 访问网页版
+                        </a>
+                        <p class="mt-3 text-sm text-gray-400">兼容 PC 与移动端浏览器</p>
+                    </div>
+                </div>
+                <div class="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
+                    <div class="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
+                        <div class="relative block w-full bg-white rounded-lg overflow-hidden">
+                            <img class="w-full" src="images/compare.jpg" alt="汇率速递应用界面" onerror="this.src='https://via.placeholder.com/375x812/f3f4f6/9ca3af?text=App+Screenshot';">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center">
+                <h2 class="text-base text-brand font-semibold tracking-wide uppercase">核心优势</h2>
+                <p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    为什么选择汇率速递？
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    告别繁琐的查询，我们为您聚合数据，让每一分钱都换得物超所值。
+                </p>
+            </div>
+
+            <div class="mt-16">
+                <div class="grid grid-cols-1 gap-8 sm:grid-cols-2 lg:grid-cols-4">
+                    <div class="pt-6">
+                        <div class="flow-root bg-gray-50 rounded-2xl px-6 pb-8 h-full hover:shadow-md transition">
+                            <div class="-mt-6">
+                                <div>
+                                    <span class="inline-flex items-center justify-center p-3 bg-brand rounded-md shadow-lg">
+                                        <i class="fa-solid fa-building-columns text-white text-xl"></i>
+                                    </span>
+                                </div>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">多家银行比价</h3>
+                                <p class="mt-5 text-base text-gray-500">
+                                    一键查询对比中国银行、工商银行、建设银行等多家主流银行实时外汇牌价，不仅看跌涨，更看哪里最划算。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6">
+                        <div class="flow-root bg-gray-50 rounded-2xl px-6 pb-8 h-full hover:shadow-md transition">
+                            <div class="-mt-6">
+                                <div>
+                                    <span class="inline-flex items-center justify-center p-3 bg-brand rounded-md shadow-lg">
+                                        <i class="fa-solid fa-bell text-white text-xl"></i>
+                                    </span>
+                                </div>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">智能监控预警</h3>
+                                <p class="mt-5 text-base text-gray-500">
+                                    支持7日最优汇率预警及自定义阈值提醒。设定目标价格，一旦触达立即通知，不错过任何波动。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6">
+                        <div class="flow-root bg-gray-50 rounded-2xl px-6 pb-8 h-full hover:shadow-md transition">
+                            <div class="-mt-6">
+                                <div>
+                                    <span class="inline-flex items-center justify-center p-3 bg-brand rounded-md shadow-lg">
+                                        <i class="fa-solid fa-calculator text-white text-xl"></i>
+                                    </span>
+                                </div>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">便捷换算工具</h3>
+                                <p class="mt-5 text-base text-gray-500">
+                                    内置实时汇率计算器，输入金额即可快速换算，支持澳元、美元、欧元等主要货币与人民币的双向转换。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-6">
+                        <div class="flow-root bg-gray-50 rounded-2xl px-6 pb-8 h-full hover:shadow-md transition">
+                            <div class="-mt-6">
+                                <div>
+                                    <span class="inline-flex items-center justify-center p-3 bg-brand rounded-md shadow-lg">
+                                        <i class="fa-solid fa-globe text-white text-xl"></i>
+                                    </span>
+                                </div>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">多币种支持</h3>
+                                <p class="mt-5 text-base text-gray-500">
+                                    全面支持 AUD, JPY, KRW, GBP, USD, EUR, SGD, THB 等全球热门货币，满足留学、旅游、投资需求。
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="screenshots" class="py-16 bg-gray-50 overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-extrabold text-gray-900">界面预览</h2>
+                <p class="mt-4 text-lg text-gray-500">简洁直观的设计，让专业数据一目了然</p>
+            </div>
+            
+            <div class="flex flex-wrap justify-center gap-8 md:gap-12">
+                <div class="w-64 flex-shrink-0">
+                    <img src="images/trend.jpg" alt="汇率走势与预警" class="app-screenshot w-full h-auto" onerror="this.src='https://via.placeholder.com/300x600/e5e7eb/9ca3af?text=Trend+View';">
+                    <p class="text-center mt-4 text-gray-600 font-medium">走势分析与预警</p>
+                </div>
+                <div class="w-64 flex-shrink-0">
+                    <img src="images/calc.jpg" alt="汇率计算器" class="app-screenshot w-full h-auto" onerror="this.src='https://via.placeholder.com/300x600/e5e7eb/9ca3af?text=Calculator';">
+                    <p class="text-center mt-4 text-gray-600 font-medium">实时换算</p>
+                </div>
+                <div class="w-64 flex-shrink-0">
+                    <img src="images/mine.jpg" alt="个人中心" class="app-screenshot w-full h-auto" onerror="this.src='https://via.placeholder.com/300x600/e5e7eb/9ca3af?text=Profile';">
+                    <p class="text-center mt-4 text-gray-600 font-medium">个性化设置</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 text-white">
+        <div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="col-span-1">
+                    <div class="flex items-center gap-2 mb-4">
+                        <div class="w-6 h-6 bg-brand rounded flex items-center justify-center">
+                            <i class="fa-solid fa-chart-line text-xs"></i>
+                        </div>
+                        <span class="text-xl font-bold">汇率速递</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        汇率速递致力于为用户提供最及时、最准确的汇率信息服务。无论您是跨境购物、出国旅游还是外汇投资，我们都是您贴心的汇率助手。
+                    </p>
+                </div>
+                
+                <div class="col-span-1">
+                    <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase mb-4">联系我们</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-center text-gray-400 text-sm">
+                            <i class="fa-regular fa-envelope mr-3 text-brand"></i>
+                            <a href="mailto:huilvsudi@outlook.com" class="hover:text-white transition">huilvsudi@outlook.com</a>
+                        </li>
+                        <li class="flex items-center text-gray-400 text-sm">
+                            <i class="fa-brands fa-weixin mr-3 text-brand"></i>
+                            <span>关注公众号：汇率速递</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <div class="col-span-1">
+                    <h3 class="text-sm font-semibold text-gray-300 tracking-wider uppercase mb-4">服务条款</h3>
+                    <ul class="space-y-3">
+                        <li>
+                            <button onclick="openModal()" class="text-gray-400 hover:text-white text-sm transition">用户协议</button>
+                        </li>
+                        <li>
+                            <button onclick="openModal()" class="text-gray-400 hover:text-white text-sm transition">隐私政策</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-8 text-center md:text-left">
+                <p class="text-xs text-gray-500">&copy; 2025 汇率速递. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <div id="agreementModal" class="fixed inset-0 z-50 hidden overflow-y-auto" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+        <div class="flex items-end justify-center min-h-screen pt-4 px-4 pb-20 text-center sm:block sm:p-0">
+            <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity" aria-hidden="true" onclick="closeModal()"></div>
+            <span class="hidden sm:inline-block sm:align-middle sm:h-screen" aria-hidden="true">&#8203;</span>
+            
+            <div class="inline-block align-bottom bg-white rounded-lg text-left overflow-hidden shadow-xl transform transition-all sm:my-8 sm:align-middle sm:max-w-lg sm:w-full">
+                <div class="bg-white px-4 pt-5 pb-4 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                        <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left w-full">
+                            <h3 class="text-lg leading-6 font-medium text-gray-900" id="modal-title">用户协议与隐私政策</h3>
+                            <div class="mt-2 h-64 overflow-y-auto text-sm text-gray-500 border p-2 rounded bg-gray-50">
+                                <p class="font-bold mb-2">1. 服务说明</p>
+                                <p class="mb-2">“汇率速递”向用户提供外汇牌价查询、比价及计算服务。所有数据来源于各银行官方公开数据，仅供参考，不构成投资建议。</p>
+                                
+                                <p class="font-bold mb-2">2. 数据免责</p>
+                                <p class="mb-2">尽管我们努力确保数据实时性，但因网络延迟或银行系统原因导致的数据偏差，本平台不承担相应责任。实际交易价格请以银行柜台为准。</p>
+                                
+                                <p class="font-bold mb-2">3. 用户隐私</p>
+                                <p class="mb-2">我们尊重您的隐私。在您使用自定义预警功能时，我们可能会在本地存储您的偏好设置。我们不会未经授权向第三方分享您的个人信息。</p>
+                                
+                                <p class="font-bold mb-2">4. 协议修改</p>
+                                <p class="mb-2">我们保留随时修改本协议的权利，修改后的协议一旦公布即有效代替原来的协议。</p>
+                                <p>...</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="bg-gray-50 px-4 py-3 sm:px-6 sm:flex sm:flex-row-reverse">
+                    <button type="button" onclick="closeModal()" class="w-full inline-flex justify-center rounded-md border border-transparent shadow-sm px-4 py-2 bg-brand text-base font-medium text-white hover:bg-brandHover focus:outline-none sm:ml-3 sm:w-auto sm:text-sm">
+                        我已阅读并同意
+                    </button>
+                    <button type="button" onclick="closeModal()" class="mt-3 w-full inline-flex justify-center rounded-md border border-gray-300 shadow-sm px-4 py-2 bg-white text-base font-medium text-gray-700 hover:bg-gray-50 focus:outline-none sm:mt-0 sm:ml-3 sm:w-auto sm:text-sm">
+                        关闭
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // 简单的模态框控制逻辑
+        function openModal() {
+            document.getElementById('agreementModal').classList.remove('hidden');
+        }
+
+        function closeModal() {
+            document.getElementById('agreementModal').classList.add('hidden');
+        }
+
+        // 导航栏滚动效果
+        window.addEventListener('scroll', function() {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 10) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body>
+</html>
