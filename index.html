@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>汇率速递 - 实时银行汇率查询与监控预警</title>
-    <meta name="description" content="汇率速递是一款简单好用的实时银行汇率查询和监控预警工具，支持一键比价、价格提醒与换算功能。">
+    <meta name="description" content="汇率速递是一款简单好用的实时银行汇率查询和监控预警的便捷工具，支持多家银行外汇牌价查询、汇率比价、价格提醒与便捷换算功能，让用户便捷获取最新汇率行情，轻松掌握价格变动。">
     <script src="https://cdn.tailwindcss.com"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -47,13 +47,15 @@
                 </div>
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#features" class="text-gray-500 hover:text-brand transition">核心功能</a>
-                    <a href="#screenshots" class="text-gray-500 hover:text-brand transition">应用截图</a>
-                    <a href="https://www.huilvsudi.com/" target="_blank" class="bg-brand hover:bg-brandHover text-white px-5 py-2 rounded-full font-medium transition shadow-lg shadow-orange-500/30">
-                        立即使用
+                    <a href="#screenshots" class="text-gray-500 hover:text-brand transition">界面预览</a>
+                    <a href="https://www.huilvsudi.com/" target="_blank" class="bg-brand hover:bg-brandHover text-white px-5 py-2 rounded-full font-medium transition shadow-lg shadow-orange-500/30 flex items-center gap-2">
+                        <i class="fa-regular fa-compass"></i> 访问网页版
                     </a>
                 </div>
                 <div class="flex items-center md:hidden">
-                    <a href="https://www.huilvsudi.com/" target="_blank" class="text-brand font-medium mr-4">打开App</a>
+                    <a href="https://www.huilvsudi.com/" target="_blank" class="text-brand font-bold mr-2 text-sm border border-brand px-3 py-1 rounded-full">
+                        访问网页版
+                    </a>
                 </div>
             </div>
         </div>
@@ -63,24 +65,45 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
             <div class="lg:grid lg:grid-cols-12 lg:gap-8">
                 <div class="sm:text-center md:max-w-2xl md:mx-auto lg:col-span-6 lg:text-left flex flex-col justify-center">
+                    
+                    <div class="mb-6 flex justify-center lg:justify-start">
+                        <span class="inline-flex items-center px-3 py-1 rounded-full text-sm font-medium bg-orange-100 text-brand border border-orange-200">
+                            <span class="w-2 h-2 bg-brand rounded-full mr-2 animate-pulse"></span>
+                            H5 版本现已上线
+                        </span>
+                    </div>
+
                     <h1 class="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl lg:text-5xl xl:text-6xl">
                         <span class="block">实时监控汇率</span>
-                        <span class="block text-brand">把握最佳换汇时机</span>
+                        <span class="block text-brand">无需下载 即点即用</span>
                     </h1>
                     <p class="mt-3 text-base text-gray-500 sm:mt-5 sm:text-xl lg:text-lg xl:text-xl">
-                        汇率速递为您提供多家银行实时外汇牌价对比、智能价格预警与便捷换算服务。支持澳元、美元、日元等全球主流货币。
+                        汇率速递是一款简单好用的实时银行汇率查询和监控预警的便捷工具，支持多家银行外汇牌价查询、汇率比价、价格提醒与便捷换算功能，让您便捷获取最新汇率行情，轻松掌握价格变动。
                     </p>
-                    <div class="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0">
+                    
+                    <div class="mt-8 sm:max-w-lg sm:mx-auto sm:text-center lg:text-left lg:mx-0 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
                         <a href="https://www.huilvsudi.com/" target="_blank" class="inline-flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-full text-white bg-brand hover:bg-brandHover md:py-4 md:text-lg md:px-10 shadow-xl shadow-orange-500/20 transition transform hover:-translate-y-1">
-                            <i class="fa-solid fa-mobile-screen mr-2"></i> 访问网页版
+                            <i class="fa-solid fa-globe mr-2"></i> 立即使用 (H5)
                         </a>
-                        <p class="mt-3 text-sm text-gray-400">兼容 PC 与移动端浏览器</p>
+                        
+                        <button disabled class="inline-flex items-center justify-center px-8 py-3 border border-gray-200 text-base font-medium rounded-full text-gray-400 bg-gray-50 cursor-not-allowed">
+                            <i class="fa-brands fa-apple mr-2"></i>
+                            <i class="fa-brands fa-android mr-2"></i>
+                            App 即将上线
+                        </button>
                     </div>
+                    <p class="mt-3 text-sm text-gray-400 sm:text-center lg:text-left">
+                        <i class="fa-solid fa-check text-green-500 mr-1"></i> 兼容 iOS / Android / 微信环境
+                    </p>
                 </div>
+
                 <div class="mt-12 relative sm:max-w-lg sm:mx-auto lg:mt-0 lg:max-w-none lg:mx-0 lg:col-span-6 lg:flex lg:items-center">
                     <div class="relative mx-auto w-full rounded-lg shadow-lg lg:max-w-md">
+                        <div class="absolute top-0 -right-4 w-72 h-72 bg-orange-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+                        <div class="absolute -bottom-8 -left-4 w-72 h-72 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000"></div>
+                        
                         <div class="relative block w-full bg-white rounded-lg overflow-hidden">
-                            <img class="w-full" src="images/home_bank.jpg" alt="汇率速递应用首页" onerror="this.src='https://via.placeholder.com/375x812/f3f4f6/9ca3af?text=Home+Screenshot';">
+                            <img class="w-full relative z-10" src="images/home_bank.jpg" alt="汇率速递银行列表" onerror="this.src='https://via.placeholder.com/375x812/f3f4f6/9ca3af?text=Home+Bank+List';">
                         </div>
                     </div>
                 </div>
@@ -109,7 +132,7 @@
                                 </div>
                                 <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">多家银行比价</h3>
                                 <p class="mt-5 text-base text-gray-500">
-                                    一键查询对比中国银行、工商银行、建设银行等多家主流银行实时外汇牌价。
+                                    一键查询对比中国银行、工商银行、建设银行等多家主流银行实时外汇牌价
                                 </p>
                             </div>
                         </div>
@@ -125,7 +148,7 @@
                                 </div>
                                 <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">智能监控预警</h3>
                                 <p class="mt-5 text-base text-gray-500">
-                                    支持7日最优汇率预警及自定义阈值提醒，不错过任何价格波动。
+                                    支持7日最低、自动监控等多种汇率预警策略，轻松抢占换汇先机
                                 </p>
                             </div>
                         </div>
@@ -139,9 +162,9 @@
                                         <i class="fa-solid fa-calculator text-white text-xl"></i>
                                     </span>
                                 </div>
-                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">便捷换算工具</h3>
+                                <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">便捷换算</h3>
                                 <p class="mt-5 text-base text-gray-500">
-                                    内置实时汇率计算器，输入金额即可快速换算，支持双向转换。
+                                    便捷换算对比多家银行价格，支持双向转换
                                 </p>
                             </div>
                         </div>
@@ -157,7 +180,7 @@
                                 </div>
                                 <h3 class="mt-8 text-lg font-medium text-gray-900 tracking-tight">多币种支持</h3>
                                 <p class="mt-5 text-base text-gray-500">
-                                    全面支持 AUD, JPY, KRW, GBP, USD, EUR, SGD, THB 等主要货币。
+                                    支持 AUD, JPY, KRW, GBP, USD, EUR, SGD, THB, NZD, HKD 等多种货币
                                 </p>
                             </div>
                         </div>
@@ -171,19 +194,19 @@
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center mb-12">
                 <h2 class="text-3xl font-extrabold text-gray-900">界面预览</h2>
-                <p class="mt-4 text-lg text-gray-500">简洁直观的设计，让专业数据一目了然</p>
+                <p class="mt-4 text-lg text-gray-500">简洁直观，信息一目了然</p>
             </div>
             
             <div class="flex flex-wrap justify-center gap-8 md:gap-8 lg:gap-10">
                 
                 <div class="w-64 flex-shrink-0">
                     <img src="images/home_compare.jpg" alt="银行比价" class="app-screenshot w-full h-auto" onerror="this.src='https://via.placeholder.com/300x600/e5e7eb/9ca3af?text=Compare';">
-                    <p class="text-center mt-4 text-gray-600 font-medium">实时比价</p>
+                    <p class="text-center mt-4 text-gray-600 font-medium">快捷比价</p>
                 </div>
 
                 <div class="w-64 flex-shrink-0">
                     <img src="images/trend.jpg" alt="汇率走势与预警" class="app-screenshot w-full h-auto" onerror="this.src='https://via.placeholder.com/300x600/e5e7eb/9ca3af?text=Trend';">
-                    <p class="text-center mt-4 text-gray-600 font-medium">走势分析</p>
+                    <p class="text-center mt-4 text-gray-600 font-medium">历史走势</p>
                 </div>
                 
                 <div class="w-64 flex-shrink-0">
@@ -211,7 +234,7 @@
                         <span class="text-xl font-bold">汇率速递</span>
                     </div>
                     <p class="text-gray-400 text-sm leading-relaxed">
-                        汇率速递致力于为用户提供最及时、最准确的汇率信息服务。无论您是跨境购物、出国旅游还是外汇投资，我们都是您贴心的汇率助手。
+                        汇率速递致力于为用户提供便捷高效的汇率信息查询和智能预警服务。无论您是出国旅游还是留学缴费，汇率速递都是您便捷的汇率提醒助手。
                     </p>
                 </div>
                 
@@ -242,7 +265,7 @@
                 </div>
             </div>
             <div class="mt-8 border-t border-gray-700 pt-8 text-center md:text-left">
-                <p class="text-xs text-gray-500">&copy; 2025 汇率速递. All rights reserved.</p>
+                <p class="text-xs text-gray-500">&copy; 2025 huilvsudi. All rights reserved.</p>
             </div>
         </div>
     </footer>
