@@ -10,3 +10,4 @@ package-lock.json
 *.keystore
 pnpm-lock.yaml
 *.DS_Store
+*.zip
