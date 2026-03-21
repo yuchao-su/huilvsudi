@@ -85,6 +85,14 @@
             border-radius: 1.5rem;
             border: 8px solid #1f2937;
         }
+        :lang(en) .nav-title {
+            font-size: 0.95rem !important;
+            max-width: 120px;
+            white-space: normal;
+            line-height: 1.1;
+        }
+        @media (min-width: 480px) { :lang(en) .nav-title { font-size: 1rem !important; max-width: 150px; } }
+        @media (min-width: 640px) { :lang(en) .nav-title { font-size: 1.125rem !important; max-width: none; white-space: nowrap; } }
         :lang(en) .hero-heading {
             font-size: 1.875rem !important; /* text-3xl */
             line-height: 1.2 !important;
@@ -111,10 +119,10 @@
                 <div class="flex items-center">
                     <div class="flex-shrink-0 flex items-center gap-2">
                         <img src="images/logo-1.png" alt="汇率速递" class="w-8 h-8 rounded-lg">
-                        <span class="font-bold text-xl tracking-tight text-gray-900" data-i18n="navTitle">汇率速递</span>
+                        <span class="nav-title inline-block font-bold text-lg sm:text-xl tracking-tight text-gray-900" data-i18n="navTitle">汇率速递</span>
                     </div>
                 </div>
-                <div class="hidden md:flex items-center space-x-4 lg:space-x-6">
+                <div class="hidden md:flex items-center space-x-2 sm:space-x-4 lg:space-x-6">
                     <button onclick="toggleLanguage()" class="text-gray-500 hover:text-brand transition flex items-center gap-1.5 whitespace-nowrap font-medium" title="切换语言 / Switch Language">
                         <i class="fa-solid fa-globe text-lg"></i> <span>中/EN</span>
                     </button>
@@ -124,11 +132,11 @@
                         <i class="fa-regular fa-compass"></i> <span data-i18n="navExperience">立即体验</span>
                     </a>
                 </div>
-                <div class="flex items-center md:hidden space-x-4">
+                <div class="flex items-center md:hidden space-x-2 sm:space-x-4">
                     <button onclick="toggleLanguage()" class="text-gray-500 hover:text-brand transition flex items-center gap-1 whitespace-nowrap text-sm font-medium" title="切换语言 / Switch Language">
                         <i class="fa-solid fa-globe text-base"></i> <span>中/EN</span>
                     </button>
-                    <a href="https://www.huilvsudi.com/" target="_blank" class="bg-brand hover:bg-brandHover text-white px-3 py-1.5 rounded-full text-sm font-medium transition shadow-lg shadow-orange-500/30 flex items-center gap-1">
+                    <a href="https://www.huilvsudi.com/" target="_blank" class="bg-brand hover:bg-brandHover text-white px-3 py-1.5 rounded-full text-sm font-medium transition shadow-lg shadow-orange-500/30 flex items-center gap-1 whitespace-nowrap">
                         <i class="fa-regular fa-compass"></i> <span data-i18n="navExperience">立即体验</span>
                     </a>
                 </div>
