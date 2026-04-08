@@ -167,7 +167,7 @@
                             App Store 下载
                         </a> -->
 
-                        <a href="https://apps.apple.com/us/app/%E6%B1%87%E7%8E%87%E9%80%9F%E9%80%92-%E9%93%B6%E8%A1%8C%E5%A4%96%E6%B1%87%E7%89%8C%E4%BB%B7%E7%9B%91%E6%8E%A7%E4%B8%8E%E8%AE%B0%E8%B4%A6/id6756343561?l=zh-Hans-CN" target="_blank" class="inline-flex whitespace-nowrap items-center justify-center px-8 py-3 border border-gray-900 text-base font-medium rounded-full text-white bg-gray-900 hover:bg-black md:py-4 md:text-lg md:px-10 shadow-lg transition transform hover:-translate-y-1">
+                        <a id="appStoreLink" href="https://apps.apple.com/us/app/%E6%B1%87%E7%8E%87%E9%80%9F%E9%80%92-%E9%93%B6%E8%A1%8C%E5%A4%96%E6%B1%87%E7%89%8C%E4%BB%B7%E7%9B%91%E6%8E%A7%E4%B8%8E%E8%AE%B0%E8%B4%A6/id6756343561?l=zh-Hans-CN" target="_blank" class="inline-flex whitespace-nowrap items-center justify-center px-8 py-3 border border-gray-900 text-base font-medium rounded-full text-white bg-gray-900 hover:bg-black md:py-4 md:text-lg md:px-10 shadow-lg transition transform hover:-translate-y-1">
                             <i class="fa-brands fa-apple mr-2"></i>
                             <span data-i18n="heroBtnIos">App Store 下载</span>
                         </a>
@@ -541,6 +541,13 @@
             document.title = currentLang === 'zh' 
                 ? '汇率速递官网 Exchange Rate Express - 实时汇率监控 抢占换汇先机' 
                 : 'Exchange Rate Express - Real-time Rate Monitoring';
+
+            const appStoreLink = document.getElementById('appStoreLink');
+            if (appStoreLink) {
+                appStoreLink.href = currentLang === 'zh'
+                    ? 'https://apps.apple.com/us/app/%E6%B1%87%E7%8E%87%E9%80%9F%E9%80%92-%E9%93%B6%E8%A1%8C%E5%A4%96%E6%B1%87%E7%89%8C%E4%BB%B7%E7%9B%91%E6%8E%A7%E4%B8%8E%E8%AE%B0%E8%B4%A6/id6756343561?l=zh-Hans-CN'
+                    : 'https://apps.apple.com/us/app/exchange-rate-express/id6756343561';
+            }
         }
 
         window.addEventListener('DOMContentLoaded', applyLanguage);
